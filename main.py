@@ -36,14 +36,23 @@ data["GDP During Covid"] = [63543.58, 6796.84, 1900.71,
                             27057.16, 5090.72, 5332.77, 40284.64]
 print(data)
 
-figure = px.bar(data, y='Total Cases', x = 'Country', title = 'Countries with the highest covid19 cases', color='red')
+figure = px.bar(data, y='Total Cases', x = 'Country', title = 'Countries with the highest covid19 cases')
 figure.show()
 
-figure = px.bar(data, y='Total Deaths', x = 'Country', title='Countries with the highest deaths', color='blue')
+figure = px.bar(data, y='Total Deaths', x = 'Country', title='Countries with the highest deaths')
 figure.show()
 
 fig = go.Figure()
-fig.add_trace(go.Bar(x=data["Country"], y=data["Total Cases"], name='Total Cases', marker_color='red'))
+fig.add_trace(go.Bar(x=data["Country"], y=data["Total Cases"], name='Total Cases', marker_color='indianred'))
 
 fig.add_trace(go.Bar(x=data["Country"], y=data["Total Deaths"], name='Total Deaths', marker_color='blue'))
+fig.show()
+
+cases = data["Total Cases"].sum()
+deceased = data["Total Deaths"].sum()
+
+labels = ["Total Cases", "Total Deaths"]
+values = [cases, deceased]
+
+fig = px.pie(data, values=values, names=labels, title='Percentage of Total cases and Deaths', hole=0.5)
 fig.show()
