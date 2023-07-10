@@ -67,4 +67,11 @@ fig = px.bar(data, x='Country', y='Total Cases', hover_data=['Population', 'Tota
 
 fig.show()
 
-fig = px.bar(data, x='Country', y='Total Cases', hover_data=['Population', 'TOtal Deaths'], color='GDP During Covid', height=800, title="GDP Per Capita During Covid-19")
+fig = px.bar(data, x='Country', y='Total Cases', hover_data=['Population', 'Total Deaths'], color='GDP During Covid', height=800, title="GDP Per Capita During Covid-19")
+
+fig = go.Figure()
+fig.add_trace(go.Bar(x=data["Country"], y=data["GDP Before Covid"], name='GDP Per Capita Before Covid-19', marker_color='indianred'))
+
+fig.add_trace(go.Bar(x=data["Country"], y=data["GDP During Covid"], name='GDP Per Capita During Covid-19', marker_color='blue'))
+fig.update_layout(barmode='group', xaxis_tickangle=-45)
+fig.show()
