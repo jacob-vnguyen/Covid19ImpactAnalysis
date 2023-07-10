@@ -56,3 +56,10 @@ values = [cases, deceased]
 
 fig = px.pie(data, values=values, names=labels, title='Percentage of Total cases and Deaths', hole=0.5)
 fig.show()
+
+death_rate = (data["Total Deaths"].sum() / data["Total Cases"].sum()) * 100
+print("Death rate = ", death_rate, "%")
+
+fig = px.bar(data, x='Country', y='Total Cases', hover_data=['Population', 'Total Deaths'], color='Stringency Index', height=800, title="Stringency Index during Covid-19")
+fig.show()
+
