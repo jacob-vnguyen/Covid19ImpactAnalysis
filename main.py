@@ -63,3 +63,8 @@ print("Death rate = ", death_rate, "%")
 fig = px.bar(data, x='Country', y='Total Cases', hover_data=['Population', 'Total Deaths'], color='Stringency Index', height=800, title="Stringency Index during Covid-19")
 fig.show()
 
+fig = px.bar(data, x='Country', y='Total Cases', hover_data=['Population', 'Total Deaths'], color='GDP Before Covid', height=800, title='GDP Per Capita Before Covid-19')
+
+fig.show()
+
+fig = px.bar(data, x='Country', y='Total Cases', hover_data=['Population', 'TOtal Deaths'], color='GDP During Covid', height=800, title="GDP Per Capita During Covid-19")
