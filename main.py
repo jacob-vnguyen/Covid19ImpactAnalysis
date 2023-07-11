@@ -34,7 +34,6 @@ data["GDP Before Covid"] = [65279.53, 8897.49, 2100.75,
 data["GDP During Covid"] = [63543.58, 6796.84, 1900.71, 
                             10126.72, 6126.87, 8346.70, 
                             27057.16, 5090.72, 5332.77, 40284.64]
-print(data)
 
 figure = px.bar(data, y='Total Cases', x = 'Country', title = 'Countries with the highest covid19 cases')
 figure.show()
@@ -74,4 +73,7 @@ fig.add_trace(go.Bar(x=data["Country"], y=data["GDP Before Covid"], name='GDP Pe
 
 fig.add_trace(go.Bar(x=data["Country"], y=data["GDP During Covid"], name='GDP Per Capita During Covid-19', marker_color='blue'))
 fig.update_layout(barmode='group', xaxis_tickangle=-45)
+fig.show()
+
+fig = px.bar(data, x='Country', y='Total Cases', hover_data=['Population', 'Total Deaths'], color='HDI', height=800, title='Huamn Development Index During Covid-19')
 fig.show()
